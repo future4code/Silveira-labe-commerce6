@@ -1,26 +1,63 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import styled from 'styled-components';
+import Filtro from './components/Filtro.js';
+// import { createGlobalStyle } from 'styled-components'; 
+// const GlobalStyled = createGlobalStyle`
+// *{
+//     margin: 0;
+//     padding: 0;
+//     background-color: whitesmoke;
+// }
+// `
+const AppContainer = styled.div`
+display: grid;
+grid-template-columns: 300px 1fr 300px;
+grid-auto-rows: 1fr;
+grid-column-gap: 5px;
+background-color: whitesmoke;
+margin: 3px;
+`
+const FiltroContainer = styled.div`
+grid-column: 1;
+border: 2px solid darkgray;
+height: 98vh;
+`
+const ProdutosContainer = styled.div`
+grid-column: 2;
+border: 2px solid darkgray;
+height: 98vh;
+`
+const CarrinhoContainer = styled.div`
+grid-column: 3;
+border: 2px solid darkgray;
+height: 98vh;
+`
+export default class App extends React.Component {
+  state = {
+    minValorDoProduto: "10",
+    maxValorDoProduto: "100000",
+    nomeDoProduto: "martelo"
+  }
+  render() {
+    return (
+      <div>
+      <AppContainer>
+      <FiltroContainer>
+        <h2>Filtro:</h2>
+      <Filtro
+      minValorDoProduto={this.state.minValorDoProduto}
+      maxValorDoProduto={this.state.maxValorDoProduto}
+      nomeDoProduto={this.state.nomeDoProduto}
+      />
+      </FiltroContainer>
+      <ProdutosContainer>
+      {/* <p>Produtos</p> */}
+      </ProdutosContainer>
+      <CarrinhoContainer>
+      {/* <p>Carrinho</p> */}
+      </CarrinhoContainer>
+      </AppContainer>
+      </div>
+    )
+  }
 }
-
-export default App;
