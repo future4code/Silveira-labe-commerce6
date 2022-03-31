@@ -1,13 +1,19 @@
+import React from 'react';
+
 import styled from 'styled-components';
-import Filtro from './components/Filtro.js';
-// import { createGlobalStyle } from 'styled-components'; 
-// const GlobalStyled = createGlobalStyle`
-// *{
-//     margin: 0;
-//     padding: 0;
-//     background-color: whitesmoke;
-// }
-// `
+import Filtro from './components/Filter';
+import ContainerProdutos from './components/ContainerProdutos';
+import Carrinho from './components/Carrinho'
+
+import { createGlobalStyle } from 'styled-components'; 
+const GlobalStyled = createGlobalStyle`
+*{
+    margin: 0;
+    padding: 0;
+    background-color: whitesmoke;
+}
+`
+
 const AppContainer = styled.div`
 display: grid;
 grid-template-columns: 300px 1fr 300px;
@@ -50,12 +56,14 @@ export default class App extends React.Component {
             />
           </FiltroContainer>
           <ProdutosContainer>
-            {/* <p>Produtos</p> */}
+            < ContainerProdutos />
           </ProdutosContainer>
           <CarrinhoContainer>
-            {/* <p>Carrinho</p> */}
+            <Carrinho />
           </CarrinhoContainer>
         </AppContainer>
+
+        <GlobalStyled />
       </div>
     )
   }
