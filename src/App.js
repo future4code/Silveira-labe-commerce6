@@ -68,9 +68,36 @@ export default class App extends React.Component {
     console.log('Funcionou');
   } 
 
-  retirarProdutosCarrinho = () => {
-    console.log('Funcionou');
-  } 
+
+  // removerProduto = (produtoID) => {
+  //   console.log('funcionou')
+  //   const novoCarrinho = this.state.produtosNoCarrinho.map((produto) => {
+  //     if (produto.id === produtoID) {
+  //       return {
+  //         ...produto, quantidade: produtos - 1
+  //       }
+  //     } return produto
+  //   }).filter((produto) => produto.quantidade > 0)
+  //   this.setState({ produtosNoCarrinho: novoCarrinho })
+
+
+  // removerProduto = (produtoID) => {
+  //   const produtoNoCarrinho = this.state.produtosNoCarrinho.find(produto => produtoID === produto.id)
+
+  //     if (produtoNoCarrinho) {
+  //       const novoCarrinho = this.state.produtosNoCarrinho.map(produto => {
+  //         if (produtoID === produto.id){
+  //           return { ...
+  //             produto, quantidade : produto.quantidade -1 }
+  //       }
+  //       return produto
+  //     })
+  //     this.setState({produtosNoCarrinho: novoCarrinho})
+  // }  else {
+  //   const produtoParaRemove = produto.find(produto => produtoID === produto.id)
+  //   const novoCarrinho = [...this.state.produtosNoCarrinho, {...produtoParaRemove, quantidade:1}]
+  //   this.setState({produtosNoCarrinho:novoCarrinho})}
+  // }
 
   atualizaValorPesquisa = (event) => {//tem que ser arrow function
     this.setState({ pesquisaNomeDoProduto: event.target.value })
@@ -111,7 +138,9 @@ export default class App extends React.Component {
             />
           </ProdutosContainer>
           
-          <Carrinho produto ={this.state.produtosNoCarrinho}/>
+          <Carrinho 
+            produto ={this.state.produtosNoCarrinho}/>
+            {/* removerProduto={this.removerProduto()} */}
           </AppContainer>
       </div>
     )

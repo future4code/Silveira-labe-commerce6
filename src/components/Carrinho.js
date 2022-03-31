@@ -35,6 +35,32 @@ function Carrinho() {
       </MainContainer>
     );
   }
+
+// class Carrinho extends React.Component {
+//   render() {
+//     const produtosNoCarrinho = this.props.produtosNoCarrinho
+//     return (
+
+
+
+//       <ContainerCarrinho>
+//         <h3>Carrinho</h3>
+//         <div>
+//           {produtosNoCarrinho.quantidade}
+//           {produtosNoCarrinho.nome}
+//           {/* <button onClick={() => this.props.removerProduto(this.props.produtosNoCarrinho.id)}>
+//                     Remover
+//                     </button> */}
+//         </div>
+//         <ValorTotal>
+//           <p>Valor Total:{+produtosNoCarrinho.preco}</p>
+//         </ValorTotal>
+//       </ContainerCarrinho>
+
+//     );
+//   }
+
+// }
   
   export default Carrinho;
   
