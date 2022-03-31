@@ -14,17 +14,38 @@ const Header = styled.header`
 
 const Grade = styled.div`
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(4, 1fr);
   gap: 15px;
   padding: 15px;
 `
 
 export default class ContainerProdutos extends React.Component {
+
+  state = {
+    sort:'decrescente'
+  }
+
+  onChangeSort = (event) => {
+    this.setState({
+      sort: event.target.value
+    })
+  }
+
+  arrayFinalProdutos = () => {
+    return this.props.arrayDeProdutos
+      .filter((produto) => this.props.maxValorDoProduto ? produto.preco <= this.props.maxValorDoProduto : true)
+      .filter((produto) => this.props.minValorDoProduto ? produto.preco >= this.props.minValorDoProduto : true)
+      .filter((produto) => this.props.nomeDoProduto ? produto.nome.toLowerCase().includes(this.props.nomeDoProduto) : true)
+      .sort((a, b) => this.state.sort === 'crescente' ? a.preco - b.preco : b.preco - a.preco)
+  }
+  
+  
   render() {
-
     
-    return (
+    const arrayDeProdutos = this.arrayFinalProdutos()
 
+    return (
+      
 
       <DivPrincipal>
         <Header>
@@ -32,19 +53,27 @@ export default class ContainerProdutos extends React.Component {
 
           <label>
             Ordenação:
-            <select>
-              <option>Crescente</option>
-              <option>Descrecente</option>
+            <select value={this.state.sort} onChange={this.onChangeSort} >
+              <option value={'crescente'} >Crescente</option>
+              <option value={'decrescente'} >Descrecente</option>
             </select>
           </label>
 
         </Header>
 
         <Grade>
-          <Card />
-          <Card />
-          <Card />
-          <Card />
+
+        {arrayDeProdutos.map((produtos, id) => {
+          return (
+            <Card key={id}
+              adicionarProdutosCarrinho={this.props.adicionarProdutosCarrinho}
+              produtos={produtos}
+            />
+          )
+        })}
+
+          
+          
         </Grade>
 
       </DivPrincipal>

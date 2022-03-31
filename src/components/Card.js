@@ -28,13 +28,16 @@ const AddToCartButton = styled.button`
 
 export default class Card extends React.Component {
   render() {
+
+    const produtos = this.props.produtos
+
     return (
       <CardContainer>
-        <img src="https://i.picsum.photos/id/386/200/200.jpg?hmac=mPGpmd8a-dSFGBZWTzakrKK9snUfEYI764cWc7zihrg" alt="" />
+        <img src={produtos.foto} alt={''} />
         <CardInfo>
-          <p>Nome do Produto</p>
-          <p>R$ 200,00</p>
-          <AddToCartButton>Adicionar ao carrinho</AddToCartButton>
+          <p>{produtos.nome}</p>
+          <p>R$ {produtos.preco},00</p>
+          <AddToCartButton onClick={() => this.props.adicionarProdutosCarrinho(produtos.id)} >Adicionar ao carrinho</AddToCartButton>
         </CardInfo>
       </CardContainer>
     )
