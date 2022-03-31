@@ -1,5 +1,7 @@
+import React from 'react';
 import styled from 'styled-components';
-import Filtro from './components/Filtro.js';
+import Filtro from './components/Filter.js';
+import Carrinho from './components/Carrinho.js';
 // import { createGlobalStyle } from 'styled-components'; 
 // const GlobalStyled = createGlobalStyle`
 // *{
@@ -21,21 +23,29 @@ grid-column: 1;
 border: 2px solid darkgray;
 height: 98vh;
 `
-const ProdutosContainer = styled.div`
-grid-column: 2;
-border: 2px solid darkgray;
-height: 98vh;
-`
-const CarrinhoContainer = styled.div`
-grid-column: 3;
-border: 2px solid darkgray;
-height: 98vh;
-`
+// const ProdutosContainer = styled.div`
+// grid-column: 2;
+// border: 2px solid darkgray;
+// height: 98vh;
+// `
+// const CarrinhoContainer = styled.div`
+// grid-column: 3;
+// border: 2px solid darkgray;
+// height: 98vh;
+// `
 export default class App extends React.Component {
   state = {
-    minValorDoProduto: "10",
-    maxValorDoProduto: "100000",
-    nomeDoProduto: "martelo"
+    minValorDoProduto: "",
+    maxValorDoProduto: "",
+    nomeDoProduto: "",
+    produtosNoCarrinho :[
+      { id: 1,
+        nome: 'Produto 1',
+        preco: 10,
+        foto: 'https://picsum.photos/200/200?a=4',
+        quantidade:1
+      }
+    ]
   }
   render() {
     return (
@@ -52,10 +62,9 @@ export default class App extends React.Component {
           <ProdutosContainer>
             {/* <p>Produtos</p> */}
           </ProdutosContainer>
-          <CarrinhoContainer>
-            {/* <p>Carrinho</p> */}
-          </CarrinhoContainer>
-        </AppContainer>
+          
+          <Carrinho produto ={this.state.produtosNoCarrinho}/>
+          </AppContainer>
       </div>
     )
   }
