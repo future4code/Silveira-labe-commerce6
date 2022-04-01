@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import CardCarrinho from './CardCarrinho.js';
 
 
+
 // const ValorTotal = styled.div`
 //     display: flex;
 //     padding: 10px;
@@ -15,10 +16,8 @@ const ContainerCarrinho = styled.div`
     padding: 10px 8px;
     
 `
-
-
-
 class Carrinho extends React.Component {
+
 valorTotalCarrinho = () => {
   let valorTotal = 0
   for (let produto of this.props.produtosNoCarrinho){
@@ -27,6 +26,7 @@ valorTotalCarrinho = () => {
   return valorTotal
 }
   render() {
+
 
 
     // const produtosNoCarrinho = this.props.produtosNoCarrinho.map((produto) => {
@@ -55,6 +55,7 @@ valorTotalCarrinho = () => {
               })}
           </div>
           <p>Valor total: R${this.valorTotalCarrinho()},00</p>
+ 
         </ContainerCarrinho>
       </>
 

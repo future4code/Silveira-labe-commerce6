@@ -42,6 +42,7 @@ export default class App extends React.Component {
     minValorDoProduto: "",
     maxValorDoProduto: "",
     pesquisaNomeDoProduto: "",
+
     produtosNoCarrinho :[
       { id: '1',
         nome: 'Produto 1',
@@ -65,6 +66,7 @@ export default class App extends React.Component {
       }
     ],
     produtos: [
+
       { id: 1,
         nome: 'Produto 1',
         preco: 10,
@@ -93,16 +95,19 @@ export default class App extends React.Component {
         const novoCarrinho = this.state.produtosNoCarrinho.map(produto => {
           if (produtoID === produto.id){
             return { ...
-              produto, quantidade : produto.quantidade +1 }
+              this.state.produtosNoCarrinho, quantidade : this.state.produtosNoCarrinho.quantidade +1 }
         }
         return produto
       })
       this.setState({produtosNoCarrinho: novoCarrinho})
   }  else {
-    const produtoParaAdd = this.state.produtos.find(produto => produtoID === produto.id)
+    const produtoParaAdd = this.state.produtosNoCarrinho.find(produto => produtoID === produto.id)
     const novoCarrinho = [...this.state.produtosNoCarrinho, {...produtoParaAdd, quantidade:1}]
     this.setState({produtosNoCarrinho:novoCarrinho})}
   } 
+
+
+ 
 
     removerProduto = (produtoID) => {
     console.log('funcionou')
