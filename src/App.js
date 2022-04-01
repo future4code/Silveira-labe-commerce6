@@ -42,15 +42,9 @@ export default class App extends React.Component {
     minValorDoProduto: "",
     maxValorDoProduto: "",
     pesquisaNomeDoProduto: "",
-    produtosNoCarrinho :[  
-      { id: 1,
-      nome: 'Produto 1',
-      preco: 10,
-      foto: 'https://picsum.photos/200/200?a=4',
-      quantidade:1
-    } ],  
-     produtos : [
-      { id: 1,
+
+    produtosNoCarrinho :[
+      { id: '1',
         nome: 'Produto 1',
         preco: 10,
         foto: 'https://picsum.photos/200/200?a=4',
@@ -70,8 +64,27 @@ export default class App extends React.Component {
         foto: 'https://picsum.photos/200/200?a=6',
         quantidade: 5
       }
+    ],
+    produtos: [
+
+      { id: 1,
+        nome: 'Produto 1',
+        preco: 10,
+        foto: 'https://picsum.photos/200/200?a=4',
+        },
+      {
+        id: 2,
+        nome: 'Produto 2',
+        preco: 150,
+        foto: 'https://picsum.photos/200/200?a=5',
+      },
+      {
+        id: 3,
+        nome: 'Produto 3',
+        preco: 1000,
+        foto: 'https://picsum.photos/200/200?a=6',
+      }
     ]
-    
   }
 
   adicionarProdutosCarrinho = (produtoID) => {
@@ -94,18 +107,20 @@ export default class App extends React.Component {
   } 
 
 
-  removerProduto = (produtoID) => {
+ 
+
+    removerProduto = (produtoID) => {
     console.log('funcionou')
     const novoCarrinho = this.state.produtosNoCarrinho.map((produto) => {
       if (produto.id === produtoID) {
         return {
-          ...produto, quantidade: produto - 1
+          ...produto, quantidade: produto.quantidade - 1
         }
       } return produto
     }).filter((produto) => produto.quantidade > 0)
     this.setState({ produtosNoCarrinho: novoCarrinho })
-
   }  
+
   atualizaValorPesquisa = (event) => {//tem que ser arrow function
     this.setState({ pesquisaNomeDoProduto: event.target.value })
   }
