@@ -35,12 +35,35 @@ height: 98vh;
 // border: 2px solid darkgray;
 // height: 98vh;
 // `
+
 export default class App extends React.Component {
   state = {
     minValorDoProduto: "",
     maxValorDoProduto: "",
     pesquisaNomeDoProduto: "",
     produtosNoCarrinho :[
+      { id: '1',
+        nome: 'Produto 1',
+        preco: 10,
+        foto: 'https://picsum.photos/200/200?a=4',
+        quantidade:1
+      },
+      {
+        id: 2,
+        nome: 'Produto 2',
+        preco: 150,
+        foto: 'https://picsum.photos/200/200?a=5',
+        quantidade: 12
+      },
+      {
+        id: 3,
+        nome: 'Produto 3',
+        preco: 1000,
+        foto: 'https://picsum.photos/200/200?a=6',
+        quantidade: 5
+      }
+    ],
+    produtos : [
       { id: 1,
         nome: 'Produto 1',
         preco: 10,
@@ -50,7 +73,7 @@ export default class App extends React.Component {
       {
         id: 2,
         nome: 'Produto 2',
-        preco: 100,
+        preco: 150,
         foto: 'https://picsum.photos/200/200?a=5',
         quantidade: 12
       },
@@ -62,43 +85,41 @@ export default class App extends React.Component {
         quantidade: 5
       }
     ]
+    
   }
 
-  adicionarProdutosCarrinho = () => {
-    console.log('Funcionou');
-  } 
-
-
-  // removerProduto = (produtoID) => {
-  //   console.log('funcionou')
-  //   const novoCarrinho = this.state.produtosNoCarrinho.map((produto) => {
-  //     if (produto.id === produtoID) {
-  //       return {
-  //         ...produto, quantidade: produtos - 1
-  //       }
-  //     } return produto
-  //   }).filter((produto) => produto.quantidade > 0)
-  //   this.setState({ produtosNoCarrinho: novoCarrinho })
-
-
-  // removerProduto = (produtoID) => {
+  // adicionarProdutosCarrinho = (produtoID) => {
+  //   console.log('Funcionou');
   //   const produtoNoCarrinho = this.state.produtosNoCarrinho.find(produto => produtoID === produto.id)
 
   //     if (produtoNoCarrinho) {
   //       const novoCarrinho = this.state.produtosNoCarrinho.map(produto => {
   //         if (produtoID === produto.id){
   //           return { ...
-  //             produto, quantidade : produto.quantidade -1 }
+  //             this.state.produtosNoCarrinho, quantidade : this.state.produtosNoCarrinho.quantidade +1 }
   //       }
   //       return produto
   //     })
   //     this.setState({produtosNoCarrinho: novoCarrinho})
   // }  else {
-  //   const produtoParaRemove = produto.find(produto => produtoID === produto.id)
-  //   const novoCarrinho = [...this.state.produtosNoCarrinho, {...produtoParaRemove, quantidade:1}]
+  //   const produtoParaAdd = this.state.produtosNoCarrinho.find(produto => produtoID === produto.id)
+  //   const novoCarrinho = [...this.state.produtosNoCarrinho, {...produtoParaAdd, quantidade:1}]
   //   this.setState({produtosNoCarrinho:novoCarrinho})}
-  // }
+  // } 
 
+
+  removerProduto = (produtoID) => {
+    console.log('funcionou')
+    const novoCarrinho = this.state.produtosNoCarrinho.map((produto) => {
+      if (produto.id === produtoID) {
+        return {
+          ...produto, quantidade: produto - 1
+        }
+      } return produto
+    }).filter((produto) => produto.quantidade > 0)
+    this.setState({ produtosNoCarrinho: novoCarrinho })
+
+  }  
   atualizaValorPesquisa = (event) => {//tem que ser arrow function
     this.setState({ pesquisaNomeDoProduto: event.target.value })
   }
@@ -131,7 +152,7 @@ export default class App extends React.Component {
           <ProdutosContainer>
             <ContainerProdutos
               adicionarProdutosCarrinho={this.adicionarProdutosCarrinho}
-              arrayDeProdutos= {this.state.produtosNoCarrinho}
+              arrayDeProdutos= {this.state.produtos}
               minValorDoProduto={this.state.minValorDoProduto}
               maxValorDoProduto={this.state.maxValorDoProduto}
               nomeDoProduto={this.state.pesquisaNomeDoProduto}
@@ -139,8 +160,8 @@ export default class App extends React.Component {
           </ProdutosContainer>
           
           <Carrinho 
-            produto ={this.state.produtosNoCarrinho}/>
-            {/* removerProduto={this.removerProduto()} */}
+            produtosNoCarrinho= {this.state.produtosNoCarrinho}
+            removerProduto={this.removerProduto}/>
           </AppContainer>
       </div>
     )
