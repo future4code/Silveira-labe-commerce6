@@ -27,7 +27,7 @@ class Carrinho extends React.Component {
 valorTotalCarrinho = () => {
   let valorTotal = 0
   for (let produto of this.props.produtosNoCarrinho){
-    valorTotal += produto.preco * produto.quantidade
+    valorTotal = produto.preco * produto.quantidade
   }
   return valorTotal
 }
