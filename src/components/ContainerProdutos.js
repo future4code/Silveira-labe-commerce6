@@ -35,7 +35,7 @@ export default class ContainerProdutos extends React.Component {
     return this.props.arrayDeProdutos
       .filter((produto) => this.props.maxValorDoProduto ? produto.preco <= this.props.maxValorDoProduto : true)
       .filter((produto) => this.props.minValorDoProduto ? produto.preco >= this.props.minValorDoProduto : true)
-      .filter((produto) => this.props.nomeDoProduto ? produto.nome.toLowerCase().includes(this.props.nomeDoProduto) : true)
+      .filter((produto) => this.props.nomeDoProduto ? produto.nome.toLowerCase().includes(this.props.nomeDoProduto.toLowerCase()) : true)
       .sort((a, b) => this.state.sort === 'crescente' ? a.preco - b.preco : b.preco - a.preco)
   }
   
