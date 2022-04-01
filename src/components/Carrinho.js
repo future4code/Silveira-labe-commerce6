@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components'
+import CardCarrinho from './CardCarrinho'
 
 
 // const ValorTotal = styled.div`
@@ -19,30 +20,22 @@ const ContainerCarrinho = styled.div`
 
 class Carrinho extends React.Component {
 
+
   render() {
 
-
-    const produtosNoCarrinho = this.props.produtosNoCarrinho.map((produto) => {
+    const produtosNoCarrinho = this.props.produtosNoCarrinho
       return (
-
-        <ContainerCarrinho>
-         <div> <p>{produto.quantidade}</p>
-          <p>{produto.nome}</p>
-          <p>{produto.preco}</p>
-          <button onClick={() => this.props.removerProduto(this.props.produtosNoCarrinho.id)}>
-            Remover
-          </button>
-        </div>
-        </ContainerCarrinho>
-
-      )
-    })
-
-    return (
       <>
         <ContainerCarrinho>
-        <h3>Carrinho</h3>
-        {produtosNoCarrinho}
+        
+        {produtosNoCarrinho.map((produto, id) => {
+          return (
+            <CardCarrinho key={id}
+            removerProduto={this.props.removerProduto}
+            produtosNoCarrinho={produto}
+            />
+          )
+        })}
         </ContainerCarrinho>
       </>
 
