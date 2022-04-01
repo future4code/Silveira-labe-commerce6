@@ -18,24 +18,29 @@ display: grid;
 grid-template-columns: 300px 1fr 300px;
 grid-auto-rows: 1fr;
 grid-column-gap: 5px;
-background-color: whitesmoke;
+background-color: #1C1C1C;
 margin: 3px;
+height: 100vh;
+/* p{
+  color: white;
+} */
 `
 const FiltroContainer = styled.div`
 grid-column: 1;
 border: 2px solid darkgray;
 height: 98vh;
+background-color: #708090;
+h2{
+  color:#363636;
+}
 `
 const ProdutosContainer = styled.div`
 grid-column: 2;
-border: 2px solid darkgray;
+/* border: 2px solid darkgray; */
 height: 98vh;
+
 `
-// const CarrinhoContainer = styled.div`
-// grid-column: 3;
-// border: 2px solid darkgray;
-// height: 98vh;
-// `
+
 
 export default class App extends React.Component {
   state = {
@@ -62,7 +67,22 @@ export default class App extends React.Component {
         nome: 'Produto 3',
         preco: 1000,
         foto: 'https://picsum.photos/200/200?a=6',
-      }
+      },
+      { id: 4,
+        nome: 'Produto 4',
+        preco: 10,
+        foto: 'https://picsum.photos/200/200?a=9',
+        },
+        { id: 5,
+          nome: 'Produto 5',
+          preco: 10,
+          foto: 'https://picsum.photos/200/200?a=8',
+          },
+          { id: 1,
+            nome: 'Produto 6',
+            preco: 10,
+            foto: 'https://picsum.photos/200/200?a=7',
+            }
     ]
   }
 

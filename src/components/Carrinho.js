@@ -14,7 +14,13 @@ const ContainerCarrinho = styled.div`
     flex-direction: column;
     border: 2px solid darkgray;
     padding: 10px 8px;
-    
+    background-color: #708090;
+    h2{
+      color: #363636;
+    }
+    p{
+      color:#87CEEB;
+    }
 `
 class Carrinho extends React.Component {
 

@@ -18,6 +18,16 @@ const Grade = styled.div`
   gap: 15px;
   padding: 15px;
 `
+const Labelstyled = styled.label`
+	color: #87CEEB;
+`
+const Pstyled = styled.p`
+  color: #87CEEB;
+`
+const SelectStyled = styled.select`
+background-color: #363636;
+color: #87CEEB;
+`
 
 export default class ContainerProdutos extends React.Component {
 
@@ -49,15 +59,15 @@ export default class ContainerProdutos extends React.Component {
 
       <DivPrincipal>
         <Header>
-          <p>Quantidade de produto: {arrayDeProdutos.length}</p>
+          <Pstyled>Quantidade de produto: {arrayDeProdutos.length}</Pstyled>
 
-          <label>
+          <Labelstyled>
             Ordenação:
-            <select value={this.state.sort} onChange={this.onChangeSort} >
+            <SelectStyled value={this.state.sort} onChange={this.onChangeSort} >
               <option value={'crescente'} >Crescente</option>
               <option value={'decrescente'} >Descrecente</option>
-            </select>
-          </label>
+            </SelectStyled>
+          </Labelstyled>
 
         </Header>
 

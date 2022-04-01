@@ -8,18 +8,38 @@ const InputContainer = styled.div`
 display: flex;
 margin: 10px;
 font-size: 15px;
+color: #87CEEB;
 input{
     margin-left: 50px;
     width: 100px;
+    border-radius: 2px;
+    background-color: 	#363636;
+    color: 		#00BFFF;
+}
+input[type=range] {
+    -webkit-appearance: none;
+    appearance: none;
+    display: inline-block;
+    width: 10em;
+    height: 0.5em;
+    position: relative;
+    left: 5.7em;
+    border-radius: 5px;
+    background-color: #363636;
+    outline: none;
 }
 `
 const InputNome = styled.div`
 display: flex;
 font-size: 15px;
 margin: 10px;
+color:#87CEEB;
 input{
     margin-left: 20px;
     width: 100px;
+    border-radius: 2px;
+    background-color: 	#363636;
+    color: 	#87CEEB;
 }
 `
 function Filtro(props) {
