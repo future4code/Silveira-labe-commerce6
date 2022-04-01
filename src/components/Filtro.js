@@ -38,7 +38,7 @@ function Filtro(props) {
           <input
             type={'range'}
             min={0}
-            max={5000}
+            max={2000}
             value={props.minValorDoProduto}
             onChange={props.atualizaPrecoMin}
           />
