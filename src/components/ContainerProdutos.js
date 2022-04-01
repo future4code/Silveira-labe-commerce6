@@ -49,7 +49,7 @@ export default class ContainerProdutos extends React.Component {
 
       <DivPrincipal>
         <Header>
-          <p>Quantidade de produto: 2</p>
+          <p>Quantidade de produto: {arrayDeProdutos.length}</p>
 
           <label>
             Ordenação:
