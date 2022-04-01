@@ -21,6 +21,7 @@ const CardContainer = styled.div`
   background-color:#363636;
   flex-wrap: wrap;
   width:100%;
+  height: 400px;
     :hover{
       background-color: #191970;
     };
@@ -41,6 +42,12 @@ const AddToCartButton = styled.button`
     }
 `
 
+const Img = styled.img`
+  flex-grow: 1;
+  width: 100%;
+  height: 60%;
+`
+
 export default class Card extends React.Component {
   render() {
 
@@ -48,7 +55,7 @@ export default class Card extends React.Component {
 
     return (
       <CardContainer>
-        <img src={produtos.foto} alt={''} />
+        <Img src={produtos.foto} alt={''} />
         <CardInfo>
           <p>{produtos.nome}</p>
           <p>R$ {produtos.preco},00</p>

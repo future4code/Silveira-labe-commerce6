@@ -1,9 +1,25 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, {createGlobalStyle} from 'styled-components';
 import Filtro from './components/Filtro.js';
 import Carrinho from './components/Carrinho.js';
 import ContainerProdutos from './components/ContainerProdutos.js';
 
+import aerolitoverde from './components/imgs/aerolitoverde.jpg'
+import fogueteToy from './components/imgs/foguete-toy.png'
+import meteorito from './components/imgs/meteorito.png'
+import naveToy from './components/imgs/nave-toy.jpg'
+import roupaespacial from './components/imgs/roupaespacial.jpg'
+import satelite from './components/imgs/satelite.jpg'
+import viagemEspacial from './components/imgs/viagem-espacial.jpg'
+import camiseta from './components/imgs/camiseta.png'
+
+const GlobalStyled = createGlobalStyle`
+  *{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+`
 
 // import { createGlobalStyle } from 'styled-components'; 
 // const GlobalStyled = createGlobalStyle`
@@ -41,7 +57,6 @@ height: 98vh;
 
 `
 
-
 export default class App extends React.Component {
   state = {
     minValorDoProduto: "",
@@ -51,38 +66,54 @@ export default class App extends React.Component {
     produtosNoCarrinho : [],
     produtos: [
 
-      { id: 1,
-        nome: 'Produto 1',
-        preco: 10,
-        foto: 'https://picsum.photos/200/200?a=4',
-        },
+      {
+        id: 1,
+        nome: 'Aerolito Verde',
+        preco: 1500,
+        foto: aerolitoverde
+      },
       {
         id: 2,
-        nome: 'Produto 2',
-        preco: 150,
-        foto: 'https://picsum.photos/200/200?a=5',
+        nome: 'Foguete de Brinquedo',
+        preco: 450,
+        foto: fogueteToy
       },
       {
         id: 3,
-        nome: 'Produto 3',
-        preco: 1000,
-        foto: 'https://picsum.photos/200/200?a=6',
+        nome: 'Meteorito',
+        preco: 10000,
+        foto: meteorito
       },
-      { id: 4,
-        nome: 'Produto 4',
-        preco: 10,
-        foto: 'https://picsum.photos/200/200?a=9',
-        },
-        { id: 5,
-          nome: 'Produto 5',
-          preco: 10,
-          foto: 'https://picsum.photos/200/200?a=8',
-          },
-          { id: 1,
-            nome: 'Produto 6',
-            preco: 10,
-            foto: 'https://picsum.photos/200/200?a=7',
-            }
+      {
+        id: 4,
+        nome: 'Nave de Brinquedo',
+        preco: 1200,
+        foto: naveToy
+      },
+      {
+        id: 5,
+        nome: 'Roupa Espacial',
+        preco: 9000,
+        foto: roupaespacial
+      },
+      {
+        id: 6,
+        nome: 'Satelite',
+        preco: 12000,
+        foto: satelite
+      },
+      {
+        id: 7,
+        nome: 'Viagem Espacial',
+        preco: 15000,
+        foto: viagemEspacial
+      },
+      {
+        id: 7,
+        nome: 'Camiseta Nasa',
+        preco: 100,
+        foto: camiseta
+      }
     ]
   }
 
@@ -160,6 +191,8 @@ export default class App extends React.Component {
             produtosNoCarrinho= {this.state.produtosNoCarrinho}
             removerProduto={this.removerProduto}/>
           </AppContainer>
+
+          {/* <GlobalStyled /> */}
       </div>
     )
   }
